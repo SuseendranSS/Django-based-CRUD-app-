@@ -1,0 +1,29 @@
+<html>
+  {% extends 'crudapp/base.html' %} {% block content %}
+  <h3>Student Details</h3>
+  <table>
+    <thead>
+      <th>Student No</th>
+      <th>Student Name</th>
+      <th>Student Class</th>
+      <th>Student Address</th>
+    </thead>
+
+    <tr>
+      {% for i in data %}
+      <td>{{ i.sno }}</td>
+      <td>{{ i.sname }}</td>
+      <td>{{ i.sclass }}</td>
+      <td>{{ i.saddr }}</td>
+      <td>
+        <a href="/update/{{i.id}}"><button type="submit">Update</button></a>
+        <a href="/delete/{{i.id}}"><button type="submit">Delete</button></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="{% url 'add_student' %}"
+    ><button type="submit">Add New Student</button></a
+  >
+  {% endblock content %}
+</html>
